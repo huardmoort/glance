@@ -48,6 +48,8 @@ func main() {
 		log.Fatalf("Failed to load configuration from %q: %v", configPath, err)
 	}
 
+	// NOTE: using log.Printf here means timestamps are included automatically,
+	// which is handy when running without a process supervisor (e.g. plain ssh session).
 	log.Printf("Starting glance v%s", version)
 	log.Printf("Loaded configuration from %s", configPath)
 
