@@ -45,6 +45,10 @@ func main() {
 	// Load configuration from file
 	cfg, err := config.Load(configPath)
 	if err != nil {
+		// Provide a more actionable error message when the default config is missing.
+		if configPath == defaultConfigPath {
+			log.Fatalf("Failed to load configuration: %v\nHint: create %q or use -config to specify a different path.", err, defaultConfigPath)
+		}
 		log.Fatalf("Failed to load configuration from %q: %v", configPath, err)
 	}
 
