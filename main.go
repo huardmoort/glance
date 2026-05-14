@@ -54,6 +54,7 @@ func main() {
 
 	// NOTE: using log.Printf here means timestamps are included automatically,
 	// which is handy when running without a process supervisor (e.g. plain ssh session).
+	// TODO: consider switching to slog for structured logging in the future.
 	log.Printf("Starting glance v%s", version)
 	log.Printf("Loaded configuration from %s", configPath)
 
